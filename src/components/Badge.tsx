@@ -1,5 +1,6 @@
 import React from 'react';
-import "./badge.css";
+// import "./badge.css";
+
 
 const Badge = (props: any) => {
     return (

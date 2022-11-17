@@ -4184,6 +4184,36 @@ function requireReactJsxRuntime_development () {
 	}
 } (jsxRuntime));
 
+function styleInject(css, ref) {
+  if ( ref === void 0 ) ref = {};
+  var insertAt = ref.insertAt;
+
+  if (!css || typeof document === 'undefined') { return; }
+
+  var head = document.head || document.getElementsByTagName('head')[0];
+  var style = document.createElement('style');
+  style.type = 'text/css';
+
+  if (insertAt === 'top') {
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild);
+    } else {
+      head.appendChild(style);
+    }
+  } else {
+    head.appendChild(style);
+  }
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var css_248z = ".badge {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  padding: 5px;\n  font-size: 1rem;\n  background-color: #EA9144;\n  border-radius: 1px;\n  color: #FFFCF8;\n  height: 1.5rem;\n  min-width: 1.5rem;\n  line-height: 100%;\n  cursor: pointer; }\n  .badge--none {\n    background-color: #C7BEB6; }";
+styleInject(css_248z);
+
 var Badge = function (props) {
     return (jsxRuntime.exports.jsx("div", __assign({ className: "badge ".concat(!props.value ? 'badge--none' : '', " ") }, { children: jsxRuntime.exports.jsx("h4", { children: props.value || 0 }) })));
 };
