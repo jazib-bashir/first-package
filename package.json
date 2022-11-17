@@ -7,7 +7,6 @@
   "files": [
     "dist/*"
   ],
-  "type": "module",
   "typings": "dist/index.d.ts",
   "dependencies": {
     "@babel/cli": "^7.19.3",
