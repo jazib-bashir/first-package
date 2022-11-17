@@ -5,6 +5,7 @@ import postcss from 'rollup-plugin-postcss';
 import typescript from "@rollup/plugin-typescript";
 import resolve from '@rollup/plugin-node-resolve';
 import image from '@rollup/plugin-image'
+import css from "rollup-plugin-import-css";
 // import visualizer from 'rollup-plugin-visualizer';
 
 const pkg = require("./package.json");
@@ -29,6 +30,7 @@ export default {
     }),
     resolve(),
     commonjs(),
+    css(),
     image(),
     typescript({ tsconfig: "./tsconfig.json" }),
     // visualizer()
